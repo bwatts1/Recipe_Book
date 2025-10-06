@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home_screen.dart'; // Import the Recipe model
+import 'home_screen.dart';
 
 class DetailScreen extends StatelessWidget {
   final Recipe recipe;
@@ -23,7 +23,6 @@ class DetailScreen extends StatelessWidget {
             ),
             const SizedBox(height: 8),
 
-            // Ingredients list
             ...recipe.ingredients.map(
               (ingredient) => ListTile(
                 leading: const Icon(Icons.circle, size: 8),
@@ -41,15 +40,12 @@ class DetailScreen extends StatelessWidget {
             ),
             const SizedBox(height: 8),
 
-            // Instructions list
             ..._buildInstructionsList(recipe.instructions),
           ],
         ),
       ),
     );
   }
-
-  /// Splits the instructions string by line and returns widgets
   List<Widget> _buildInstructionsList(String instructionsText) {
     final steps = instructionsText.split('\n');
 
